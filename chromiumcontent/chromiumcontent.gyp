@@ -20,6 +20,11 @@
             'chromiumviews',
           ],
         }],
+        ['OS=="freebsd"', {
+          'dependencies': [
+            'chromiumviews',
+          ],
+        }],
       ],
     },
     {
@@ -58,7 +63,7 @@
     },
   ],
   'conditions': [
-    ['OS in ["win", "linux"]', {
+    ['OS in ["win", "linux", "freebsd"]', {
       'targets': [
         {
           'target_name': 'chromiumviews',
@@ -72,7 +77,7 @@
             '<(DEPTH)/ui/wm/wm.gyp:wm',
           ],
           'conditions': [
-            ['OS=="linux"', {
+            ['OS=="linux" or OS=="freebsd"', {
               'dependencies': [
                 '<(DEPTH)/chrome/browser/ui/libgtk2ui/libgtk2ui.gyp:gtk2ui',
               ],
